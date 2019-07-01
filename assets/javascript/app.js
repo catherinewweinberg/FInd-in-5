@@ -1,3 +1,4 @@
+
 var firebaseConfig = {
   apiKey: "AIzaSyCL-RRX9a62sv2w7V_M9Zjg1tXxTGb6rdc",
   authDomain: "find-in-five.firebaseapp.com",
@@ -55,3 +56,4 @@ $("#netflixCheck").on("click", function () {
 $("#showMovies").on("click", function () {
   console.log(netflixMovies);
 })
+
