@@ -17,7 +17,7 @@ var database = firebase.database();
 var movieArray = [];
 var netflixMovies = [];
 $("#movieCall").on("click", function () {
-  var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3c08d2c0cdfa9dd48041ef2cdea4b2f3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=35&year=2017";
+  var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3c08d2c0cdfa9dd48041ef2cdea4b2f3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=878%2C53&year=2017";
   $.ajax({
     url: queryURL,
     method: "GET"
