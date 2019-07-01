@@ -1,4 +1,3 @@
-
 var firebaseConfig = {
   apiKey: "AIzaSyCL-RRX9a62sv2w7V_M9Zjg1tXxTGb6rdc",
   authDomain: "find-in-five.firebaseapp.com",
@@ -8,25 +7,39 @@ var firebaseConfig = {
   messagingSenderId: "325575958489",
   appId: "1:325575958489:web:0c9af4f6893f24d8"
 };
-
 firebase.initializeApp(firebaseConfig);
-
 var database = firebase.database();
-
 
 var movieArray = [];
 var netflixMovies = [];
+var genre;
+var year;
+$(".genre").on("click", function () {
+  genre = $(this).attr("id");
+  console.log(genre);
+});
+
+$(".year").on("click", function () {
+  year = parseInt($(this).attr("id"));
+  console.log(year);
+});
+
 $("#movieCall").on("click", function () {
-  var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3c08d2c0cdfa9dd48041ef2cdea4b2f3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=878%2C53&year=2017";
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function (response) {
-    for (i = 0; i < response.results.length; i++) {
-      movieArray[i] = response.results[i].title;
-    }
-    console.log(movieArray);
-  });
+
+  for (var i = 1; i < 6; i++) {
+    var queryURL = "https://api.themoviedb.org/3/discover/movie?api_key=3c08d2c0cdfa9dd48041ef2cdea4b2f3&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=" + i + "&release_date.gte=" + year + "&release_date.lte= " + (year + 9) + "&with_genres=" + genre;
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      for (i = 0; i < response.results.length; i++) {
+        movieArray[i] = response.results[i].title;
+      }
+      console.log(movieArray);
+    });
+  }
+
+
 });
 
 $("#netflixCheck").on("click", function () {
