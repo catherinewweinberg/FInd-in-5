@@ -2,7 +2,7 @@ $(document).ready(function () {
   $('.carousel').carousel();
   $('#run').on('click', go);
   $("#initial-hide").hide();
-  
+
 });
 
 $("#run").on("click", function () {
@@ -18,7 +18,7 @@ var startYear;
 var endYear;
 // var showCarousel = false;
 $("#progressMessage").hide();
-// $("#movieCarousel").hide();
+$("carousel").hide();
 $("#progressBar").hide();
 $("#submit2").hide();
 $("#submit3").hide();
@@ -98,6 +98,7 @@ function showSubmit3() {
   $("#submit3").show();
   $("#progressMessage").hide();
   $("#progressBar").hide();
+  $("#carousel").show();
 }
 
 $("#submit3").on("click", function () {
