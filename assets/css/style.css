@@ -1,0 +1,35 @@
+/* used few basic css to get layout
+need to change */
+
+body {
+    text-align: center;
+}
+
+.sticky {
+    position: fixed;
+    top: 0; 
+}
+
+.center {
+    padding: 0px;
+    margin: 0px; 
+}
+
+.carousel .carousel-item{
+    width: 200px;
+    height: 500px; 
+}
+
+.border {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {} 
