@@ -2,6 +2,7 @@ $(document).ready(function () {
   $('.carousel').carousel();
   $('#run').on('click', go);
   $("#initial-hide").hide();
+  
 });
 
 $("#run").on("click", function () {
