@@ -110,7 +110,10 @@ $("#submit3").on("click", function () {
     $("#" + posterName).attr("src", netflixMovies[i - 1].picture).attr("max-width", "300px");
     $("#" + titleName).text(netflixMovies[i - 1].name);
     $("#" + linkName).attr("href", netflixMovies[i - 1].url);
+
   }
+  movieArray = [];
+  netflixMovies = [];
 });
 
 $("#showMovies").on("click", function () {
