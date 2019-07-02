@@ -5,6 +5,10 @@ body {
     text-align: center;
 }
 
+.splash {
+    height: 700px;
+}
+
 .sticky {
     position: fixed;
     top: 0; 

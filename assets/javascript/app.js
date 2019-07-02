@@ -1,9 +1,18 @@
 
 $(document).ready(function(){
     $('.carousel').carousel();
-    $('#submit').on('click', submit);
-
+    $('#run').on('click', go);
+    $("#initial-hide").hide();
 });
+
+
+$("#run").on("click", function(){
+    $("#splash").hide();
+    $("#initial-hide").show();
+  });
+
+
+
 //This section for Ajax Calls
 
 
@@ -25,7 +34,7 @@ var intervalId;
 var clockRunning = false;
 var time = 300;
 
-function submit() {
+function go() {
     if (!clockRunning) {
       intervalId = setInterval(count, 1000);
       clockRunning = true;
