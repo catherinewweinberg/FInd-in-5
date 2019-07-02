@@ -18,7 +18,7 @@ var startYear;
 var endYear;
 // var showCarousel = false;
 $("#progressMessage").hide();
-$("carousel").hide();
+$(".carousel").hide();
 $("#progressBar").hide();
 $("#submit2").hide();
 $("#submit3").hide();
@@ -98,12 +98,12 @@ function showSubmit3() {
   $("#submit3").show();
   $("#progressMessage").hide();
   $("#progressBar").hide();
-  $("#carousel").show();
 }
 
 $("#submit3").on("click", function () {
   $("#submit3").hide();
   $("#submit1").show();
+  $(".carousel").show();
   for (var i = 1; i < 11; i++) {
     var posterName = "poster-" + i;
     var titleName = "title-" + i;
