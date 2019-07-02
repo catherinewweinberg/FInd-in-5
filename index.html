@@ -9,17 +9,23 @@
     <!--Materialize-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
+   
     <!--jQuery Reference-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <!--Font Awesome-->
+     <script src="https://kit.fontawesome.com/6056a259d0.js"></script>
 </head>
 
 <body>
     <!--NavBar -->
-    <nav class="sticky">
+    <nav class="sticky left-align">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">FIVE</a>
+            <a href="#" class="brand-logo"><i class="fas fa-hand-paper"></i>FIVE</a>
+            <h1 id="hide-timer" class="center-align">Find in <span id="timer">05:00</span></h1>
+            <hr>
         </div>
+        
+
     </nav>
     <br>
 
@@ -30,15 +36,23 @@
         <br>
         <br>
         <p>Let's find a movie</p>
-        <button id="run">GO~</button>
+        <button id="run">GO!</button>
     </div>
     <!--Title / Active Timer-->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>        
+    <br>
+    <br>
+ 
     <div id="initial-hide" class="container">
-        <h1>Find in <span id="timer">05:00</span></h1>
-        <hr>
+        <!-- <h1>Find in <span id="timer">05:00</span></h1>
+        <hr> -->
 
         <div class="row">
-            <h6>Select a genre</h6>
+            <h6>Select a Genre</h6>
         </div>
         <!--Buttons for Genre
         Need to figure toggle w/o bootstrap
@@ -93,7 +107,7 @@
         <!--Need to Add Netflix image-->
         <div class="row border">
             <h5> Platform Availability: </h5>
-            <img class="col offset-s6" src="assets/images/netflix.jpg" alt="Netflix">
+            <img src="assets/images/netflix.jpg" alt="Netflix">
         </div>
         <!--Carousel with 10 cards-->
         <div class="row">
@@ -251,7 +265,7 @@
         </div>
     </div>
 
-    <footer class="page-footer">
+    <footer class="page-footer color">
         <div class="footer-copyright">
             <div class="container">
                 © 2019 Copyright
