@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  $('.carousel').carousel();
+  $(".carousel").carousel();
   $('#run').on('click', go);
   $("#initial-hide").hide();
-
+  $("#timeUpDiv").hide();
 });
 
 $("#run").on("click", function () {
@@ -11,14 +11,15 @@ $("#run").on("click", function () {
 });
 
 //This section for Ajax Calls
+var randomIndex = Math.floor(Math.random() * 10);
 var movieArray = [];
 var netflixMovies = [];
+var netflixMoviesDuplicate;
 var genre;
 var startYear;
 var endYear;
-// var showCarousel = false;
+$("#platform").hide();
 $("#progressMessage").hide();
-$(".carousel").hide();
 $("#progressBar").hide();
 $("#submit2").hide();
 $("#submit3").hide();
@@ -63,7 +64,6 @@ function showSubmit2() {
 }
 
 $("#submit2").on("click", function () {
-
   var queryURL;
   for (var i = 0; i < 100; i++) {
     queryURL = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=" + movieArray[i] + "&country=us";
@@ -81,16 +81,14 @@ $("#submit2").on("click", function () {
           netflixMovies.push(movieData);
         }
       }
-      console.log(response);
     });
   }
-  // netflixMovies.length = 10;
   console.log(netflixMovies);
   $("#submit2").hide();
   $("#progressMessage").text("Finding movies available on Netflix...");
   $("#progressMessage").show();
   $("#progressBar").show();
-  setTimeout(showSubmit3, 2000);
+  setTimeout(showSubmit3, 2500);
 
 });
 
@@ -103,7 +101,7 @@ function showSubmit3() {
 $("#submit3").on("click", function () {
   $("#submit3").hide();
   $("#submit1").show();
-  $(".carousel").show();
+  $("#platform").show();
   for (var i = 1; i < 11; i++) {
     var posterName = "poster-" + i;
     var titleName = "title-" + i;
@@ -112,32 +110,16 @@ $("#submit3").on("click", function () {
     $("#" + posterName).attr("src", netflixMovies[i - 1].picture).attr("max-width", "300px");
     $("#" + titleName).text(netflixMovies[i - 1].name);
     $("#" + linkName).attr("href", netflixMovies[i - 1].url);
+    $("#" + linkName).text("Link to film");
 
   }
   movieArray = [];
+  netflixMoviesDuplicate = netflixMovies.slice(0);
   netflixMovies = [];
 });
 
-$("#showMovies").on("click", function () {
-  console.log(netflixMovies);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // This Section for Timer
 var intervalId;
-
 var clockRunning = false;
 var time = 300;
 
@@ -151,15 +133,21 @@ function go() {
 function stop() {
   clearInterval(intervalId);
   clockRunning = false;
+
 }
 
 function count() {
   if (time === 0) {
     stop();
+    setTimeout(redirect, 3000);
+    $("#initial-hide").hide();
+    $("#timeUpDiv").show();
+    $("#finalMoviePic").attr("src", netflixMoviesDuplicate[randomIndex].picture).attr("width", "350px");
+    $("#finalMovieName").text(netflixMoviesDuplicate[randomIndex].name);
   } else {
     time--;
     var converted = timeConverter(time);
-    console.log(converted);
+    // console.log(converted);
     $('#timer').text(converted);
   }
 }
@@ -179,4 +167,7 @@ function timeConverter(t) {
   }
 
   return minutes + ':' + seconds;
+}
+function redirect() {
+  window.location = netflixMoviesDuplicate[randomIndex].url;
 }
