@@ -88,7 +88,7 @@ $("#submit2").on("click", function () {
   $("#progressMessage").text("Finding movies available on Netflix...");
   $("#progressMessage").show();
   $("#progressBar").show();
-  setTimeout(showSubmit3, 2500);
+  setTimeout(showSubmit3, 3200);
 
 });
 
